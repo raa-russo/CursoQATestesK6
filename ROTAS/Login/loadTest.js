@@ -8,42 +8,39 @@ export function handleSummary(data) {
   };
 }
 
-const baseUrl = "http://localhost:3000"; // URL base da Serverest
+const baseUrl = "http://localhost:3000/login"; 
 
 export const options = {
   stages: [
-    { duration: "1m", target: 100 }, // Aumenta gradativamente para o número máximo de usuários em 30 segundos
-    { duration: "2m", target: 100 }, // Mantém o número máximo de usuários por mais 30 segundos
-    { duration: "1m", target: 0 }, // Reduz gradualmente o número de usuários para 0 em 10 segundos
+    { duration: "1m", target: 100 }, 
+    { duration: "2m", target: 100 }, 
+    { duration: "1m", target: 0 }, 
   ],
   thresholds: {
-    http_req_duration: ["p(95)<2000"], // Define o limite de 500 ms para a duração das requisições
-    http_req_failed: ['rate<0.01'] //1% das requisicoes podem falhar
+    http_req_duration: ["p(95)<2000"], 
+    http_req_failed: ['rate<0.01'] 
   },
 };
 
 export default function () {
   group("loadTest", function () {
     const endpoint = "/usuarios/";
-    // Faz uma requisição GET para um endpoint da API Serverest
+    
     const response = http.get(`${baseUrl}${endpoint}`);
-    try {  
-      // Verifica se a resposta foi bem-sucedida (status 2xx)
+    try {        
       if (response.status >= 200 && response.status < 300) {
-      //  console.log('Load Test passou! API is up and running.');
+        console.error('Load Test passou! API connect.');
       } else {
-      //  console.error('Load Test falhou! API returned an error.');
+        console.error('Load Test falhou! API returned an error.');
       }
     } catch (error) {
-    //  console.error('Load Test falhou! Unable to connect to the API.');
-    //  console.error(error.message);
-    }
-    // Verifica se a resposta foi bem-sucedida (status 2xx)
+      console.error('Load Test falhou! Unable to connect to the API.');
+      console.error(error.message);
+    }    
     check(response, {
       "Status é 200": (r) => r.status === 200,
     });
 
-    // Aguarda um pequeno intervalo entre as requisições
     sleep(1);
   });
 }
