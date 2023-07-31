@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 import { Trend, Rate, Counter } from 'k6/metrics';
 import { check, fail } from 'k6';
-import uuid from '../libs/uuid.js';
+import uuid from './';
 import Token from "./login.js";
 
 export let GetCustomerDuration = new Trend('post_customer_duration');
