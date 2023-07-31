@@ -15,7 +15,7 @@ export function handleSummary(data) {
 
   export const options = {
     stages: [
-      { duration: '5s', target: 1 },
+      { duration: '1s', target: 1 },
       
     ],
     thresholds: {
