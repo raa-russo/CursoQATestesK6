@@ -37,8 +37,6 @@ export const options = {
     },
 };
 
-
-
 export function smokeTest() {
     group('Endpoint Get smokeTest - APi K6', () => {
         SmokeTest();
