@@ -1,5 +1,5 @@
-import CadastrarProdutos from "./cadastrarProd.js";
-import EditarProdutos from "./editarProd.js";
+import CadastrarProdutos from "./cadastrar.js";
+import EditarProdutos from "./editar.js";
 import ExcluirProdutos from "./excluirProd.js";
 import ListarProdutos from "./listarProd.js";
 import ListarProdutosId from "./listarProd_Id.js";

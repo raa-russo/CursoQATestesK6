@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 import { Trend, Rate, Counter } from 'k6/metrics';
 import { check, fail } from 'k6';
-import ID_Prod from "./cadastrarProd.js";
+import ID_Prod from "./cadastrar.js";
 
 export let GetCustomerFailRate = new Rate('get_customer_fail_rate');
 export let GetCustomerSuccessRate = new Rate('get_customer_success_rate');
