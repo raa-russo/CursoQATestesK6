@@ -21,7 +21,7 @@ export default function () {
     check(res, {
         'status shoul be 200': (r) => r.status === 200,        
     });       
-    console.log(res.body);
+    //console.log(res.body);
     sleep(1);
 }
 
