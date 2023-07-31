@@ -1,8 +1,8 @@
 import CadastrarProdutos from "./cadastrar.js";
 import EditarProdutos from "./editar.js";
-import ExcluirProdutos from "./excluirProd.js";
-import ListarProdutos from "./listarProd.js";
-import ListarProdutosId from "./listarProd_Id.js";
+import ExcluirProdutos from "./excluir.js";
+import ListarProdutos from "./listar.js";
+import ListarProdutosId from "./listar_Id.js";
 import Login from "../login/login.js";
 import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
@@ -15,11 +15,11 @@ export function handleSummary(data) {
 
 export const options = {
   stages: [
-    { duration: '1s', target: 1 }    
+    { duration: '1s', target: 1 },    
   ],
   thresholds: {
-    http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'],
-    http_req_failed: ['rate<0.01']
+    http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'], 
+    http_req_failed: ['rate<0.01'] 
   }
 }
 
@@ -49,4 +49,4 @@ export default () => {
   });
 
   sleep(1);
-}
+};
