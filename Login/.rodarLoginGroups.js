@@ -1,7 +1,7 @@
-import SmokeTest from "./login/smokeTest.js";
-import LoadTest from "./login/loadTest.js";
-import StressTest from "./login/stressTest.js";
-import StatusCode from "./login/statusCode.js";
+import SmokeTest from "./smokeTest.js";
+import LoadTest from "./loadTest.js";
+import StressTest from "./stressTest.js";
+import StatusCode from "./statusCode.js";
 import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
