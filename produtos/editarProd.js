@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
-import Token from "../Login/login.js";
+import Token from "../login/login.js";
 import ID_Prod from "./cadastrarProd.js";
 
 export default function () {

@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
 import uuid from '../libs/uuid.js';
-import Token from "../Login/login.js";
+import Token from "../login/login.js";
 
 export default function () {
   const url = 'http://localhost:3000/produtos';
