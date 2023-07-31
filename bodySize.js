@@ -7,5 +7,7 @@ export default function () {
     'body size is 3237 bytes': (r) => r.body.length == 3237,
     'is status 200': (r) => r.status === 200,
   });
+  console.log(res.status);
+  console.log(res.body);
   console.log(res.body.length);
 }
