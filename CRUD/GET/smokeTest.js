@@ -10,7 +10,7 @@ export function handleSummary(data) {
 }
 
 const baseUrl = "http://localhost:3000"; // URL base da Serverest
-const numberOfUsers = 10; // Número de usuários virtuais simulados
+const numberOfUsers = 1; // Número de usuários virtuais simulados
 const testDuration = "5s"; // Duração do teste de carga
 
 export const options = {
@@ -35,7 +35,7 @@ export default function () {
         }
       } catch (error) {
         console.error('Smoke Test falhou! Unable to connect to the API.');
-        //console.error(error.message);
+        console.error(error.message);
       }
 
     // Verifica se a resposta foi bem-sucedida (status 2xx)
