@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
-import uuid from '../../libs/uuid.js';
+import uuid from '../libs/uuid.js';
 
 
 export default function () {
