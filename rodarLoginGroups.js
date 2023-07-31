@@ -1,7 +1,7 @@
-import SmokeTest from "./Login/smokeTest.js";
-import LoadTest from "./Login/loadTest.js";
-import StressTest from "./Login/stressTest.js";
-import StatusCode from "./Login/statusCode.js";
+import SmokeTest from "./login/smokeTest.js";
+import LoadTest from "./login/loadTest.js";
+import StressTest from "./login/stressTest.js";
+import StatusCode from "./login/statusCode.js";
 import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
@@ -12,16 +12,16 @@ export function handleSummary(data) {
 }
 
 export const options = {
-    Login: {
+    login: {
         smokeTest: {
             executor: 'constant-vus',
-            exec: 'contacts',
+            exec: 'smokeTest',
             vus: 1,
             duration: '5s',
         },
         loadTest: {
             executor: 'constant-vus',
-            exec: 'contacts',
+            exec: 'loadTest',
             vus: 50,
             iterations: 100,
             startTime: '30s',
@@ -29,7 +29,7 @@ export const options = {
         },
         stressTest: {
             executor: 'constant-vus',
-            exec: 'contacts',
+            exec: 'stressTest',
             vus: 500,
             iterations: 100,
             startTime: '30s',
@@ -37,35 +37,35 @@ export const options = {
         },
         statusCode: {
             executor: 'constant-vus',
-            exec: 'contacts',
+            exec: 'statusCode',
             vus: 1,
             iterations: 1,
             startTime: '30s',
             maxDuration: '1m',
         },
     },
-}
+};
 
 
 export function smokeTest() {
-    group('Smoke test running - APi K6', () => {
+    group('Endpoint Get smokeTest - APi K6', () => {
         SmokeTest();
     });
-}
+};
 export function loadTest() {
-    group('Load test runnings - APi K6', () => {
+    group('Endpoint Get loadTest - APi K6', () => {
         LoadTest()
     });
-}
+};
 
 export function stressTest() {
-    group('Stress test runnings - APi K6', () => {
+    group('Endpoint Get stressTest - APi K6', () => {
         StressTest()
     });
-}
+};
 
 export function statusCode() {
-    group('Status code test runnings - APi K6', () => {
+    group('Endpoint Get statusCode - APi K6', () => {
         StatusCode()
     });
-} 
+};
