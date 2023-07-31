@@ -1,9 +1,9 @@
 import Login from "../login/login.js";
-import ListarUsuarios from "./listarUsers.js";
-import CadastrarUsuarios from "./cadastrarUsers.js";
-import ListarUsuariosId from "./listarUsersId.js";
-import EditarUsuarios from "./editarUsers.js";
-import ExcluirUsuarios from "./excluirUsers.js";
+import ListarUsuarios from "../usuarios/listarUsers.js";
+import CadastrarUsuarios from "../usuarios/cadastrarUsers.js";
+import ListarUsuariosId from "../usuarios/listarUsersId.js";
+import EditarUsuarios from "../usuarios/editarUsers.js";
+import ExcluirUsuarios from "../usuarios/excluirUsers.js";
 import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
