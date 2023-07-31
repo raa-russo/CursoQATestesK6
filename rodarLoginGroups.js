@@ -12,38 +12,40 @@ export function handleSummary(data) {
 }
 
 export const options = {
-    login: {
-        smokeTest: {
-            executor: 'constant-vus',
-            exec: 'smokeTest',
-            vus: 1,
-            duration: '5s',
+    scenarios: {
+        login: {
+            smokeTest: {
+                executor: 'constant-vus',
+                exec: 'smokeTest',
+                vus: 1,
+                duration: '5s',
+            },
+            loadTest: {
+                executor: 'constant-vus',
+                exec: 'loadTest',
+                vus: 50,
+                iterations: 100,
+                startTime: '30s',
+                maxDuration: '1m',
+            },
+            stressTest: {
+                executor: 'constant-vus',
+                exec: 'stressTest',
+                vus: 500,
+                iterations: 100,
+                startTime: '30s',
+                maxDuration: '1m',
+            },
+            statusCode: {
+                executor: 'constant-vus',
+                exec: 'statusCode',
+                vus: 1,
+                iterations: 1,
+                startTime: '30s',
+                maxDuration: '1m',
+            },
         },
-        loadTest: {
-            executor: 'constant-vus',
-            exec: 'loadTest',
-            vus: 50,
-            iterations: 100,
-            startTime: '30s',
-            maxDuration: '1m',
-        },
-        stressTest: {
-            executor: 'constant-vus',
-            exec: 'stressTest',
-            vus: 500,
-            iterations: 100,
-            startTime: '30s',
-            maxDuration: '1m',
-        },
-        statusCode: {
-            executor: 'constant-vus',
-            exec: 'statusCode',
-            vus: 1,
-            iterations: 1,
-            startTime: '30s',
-            maxDuration: '1m',
-        },
-    },
+    }
 };
 
 
