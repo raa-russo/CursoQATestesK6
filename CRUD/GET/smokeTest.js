@@ -9,26 +9,13 @@ export function handleSummary(data) {
   };
 }
 
-const baseUrl = "http://localhost:3000"; // URL base da Serverest
-const numberOfUsers = 1; // Número de usuários virtuais simulados
-const testDuration = "5s"; // Duração do teste de carga
-
-export const options = {
-  vus: numberOfUsers,
-  duration: testDuration,
-};
-
 export default function () {
-  group("SmokeTest", function () {
-    const endpoint = "/usuarios/";
-
-    // Faz uma requisição GET para um endpoint da API Serverest
-    const response = http.get(`${baseUrl}${endpoint}`);
+  const res = http.get('http://localhost:3000'); 
 
     try {  
 
         // Verifica se a resposta foi bem-sucedida (status 2xx)
-        if (response.status >= 200 && response.status < 300) {
+        if (res.status >= 200 && res.status < 300) {
           console.log('Smoke Test passou! API is up and running.');
         } else {
           console.error('Smoke Test falhou! API returned an error.');
@@ -39,14 +26,14 @@ export default function () {
       }
 
     // Verifica se a resposta foi bem-sucedida (status 2xx)
-    check(response, {
+    check(res, {
       "Status é 200": (r) => r.status === 200,
     });    
 
     // Aguarda um pequeno intervalo entre as requisições
     sleep(1);
-  });
-}
+  }
+
 
 
 
