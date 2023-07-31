@@ -20,7 +20,7 @@ export function handleSummary(data) {
     ],
     thresholds: {
       http_req_duration: ['p(95)<2000'], //95% das requisiçoes devem responder em ate 2s.
-      http_req_failed: ['rate<0.01'] //1% das reuisicoes podem ocorrer erro.
+      http_req_failed: ['rate<0.01'] //1% das requisicoes podem ocorrer erro.
     }  
   }
 
