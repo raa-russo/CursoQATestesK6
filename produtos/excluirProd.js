@@ -15,9 +15,9 @@ export default function () {
       'Authorization': `${globalThis.token}`, 
       'monitor': 'false',
     },
-  };
+  };  
   
-  const res = http.del(url, Headers);  
+  const res = http.del(url, Headers, null, params);  
 
   check(res, {    
     'is status code 200 - Registro excluído com sucesso': (r) => r.status === 200,
