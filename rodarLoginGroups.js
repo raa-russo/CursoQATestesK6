@@ -13,13 +13,13 @@ export function handleSummary(data) {
 
 export const options = {
     Login: {
-        SmokeTest: {
+        smokeTest: {
             executor: 'constant-vus',
             exec: 'contacts',
             vus: 1,
             duration: '5s',
         },
-        LoadTest: {
+        loadTest: {
             executor: 'constant-vus',
             exec: 'contacts',
             vus: 50,
@@ -27,7 +27,7 @@ export const options = {
             startTime: '30s',
             maxDuration: '1m',
         },
-        StressTest: {
+        stressTest: {
             executor: 'constant-vus',
             exec: 'contacts',
             vus: 500,
@@ -35,7 +35,7 @@ export const options = {
             startTime: '30s',
             maxDuration: '1m',
         },
-        StatusCode: {
+        statusCode: {
             executor: 'constant-vus',
             exec: 'contacts',
             vus: 1,
@@ -47,24 +47,24 @@ export const options = {
 }
 
 
-export function Smoke() {
+export function smokeTest() {
     group('Smoke test running - APi K6', () => {
         SmokeTest();
     });
 }
-export function Load() {
+export function loadTest() {
     group('Load test runnings - APi K6', () => {
         LoadTest()
     });
 }
 
-export function Stress() {
+export function stressTest() {
     group('Stress test runnings - APi K6', () => {
         StressTest()
     });
 }
 
-export function Status() {
+export function statusCode() {
     group('Status code test runnings - APi K6', () => {
         StatusCode()
     });
