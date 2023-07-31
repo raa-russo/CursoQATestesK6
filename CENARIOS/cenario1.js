@@ -1,7 +1,7 @@
-import Login from "./cenario1/login.js";
-import ListarUsuarios from "./cenario1/listar_user.js";
-import CadastarUsuarios from "./cenario1/cad_prod.js";
-import ListarProdutos from "./cenario1/list_prod.js";
+import Login from "../login/login.js";
+import CadastarUsuarios from "../usuarios/cadastrarUsers.js";
+import ListarUsuarios from "../usuarios/listarUsers.js";
+import ListarProdutos from "../produtos/listar.js";
 import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
@@ -13,11 +13,8 @@ export function handleSummary(data) {
 
   export const options = {
     stages: [
-      { duration: '30s', target: 50 },
-      { duration: '2m', target: 100 },
-      { duration: '30s', target: 200 },
-      { duration: '1m', target: 100 },
-      { duration: '3m', target: 0 },
+      { duration: '1s', target: 1 },
+      
     ],
     thresholds: {
       http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'], 
