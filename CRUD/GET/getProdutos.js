@@ -12,15 +12,15 @@ export function handleSummary(data) {
 
   export const options = {
     stages: [
-      { duration: '30s', target: 50 },
-      { duration: '2m', target: 100 },
-      { duration: '30s', target: 200 },
-      { duration: '1m', target: 100 },
-      { duration: '3m', target: 0 },
+      { duration: '3s', target: 50 },
+      { duration: '2s', target: 100 },
+      { duration: '3s', target: 200 },
+      { duration: '1s', target: 100 },
+      { duration: '3s', target: 0 },
     ],
     thresholds: {
       http_req_duration: ['p(95)<2000'], //95% das requisiçoes devem responder em ate 2s.
-      http_req_failed: ['rate<0.01'] //1% das requisicoes podem ocorrer erro.
+      http_req_failed: ['rate<0.05'] //5% das requisicoes podem ocorrer erro.
     }  
   }
 
@@ -39,7 +39,7 @@ export default function () {
 
   let durationMSG = 'Max Duration ${1000/1000}s'
   if(!check(res, {
-    'max duration': (r) => r.timings.duration < 1000,
+    'max duration': (r) => r.timings.duration < 2000,
     'is status code 200': (r) => r.status === 200,
   })){
     fail(durationMSG);

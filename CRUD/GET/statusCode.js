@@ -15,6 +15,7 @@ export default function () {
     // Verifica se a resposta foi bem-sucedida (status 200)
     check(res, {
       "Status é 200": (r) => r.status === 200,
+      'body size is 3237 bytes': (r) => r.body.length == 3237,
     });    
     //console.log(res.body)
     // Aguarda um pequeno intervalo entre as requisições

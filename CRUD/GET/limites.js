@@ -21,4 +21,4 @@ export default function () {
 }
 
 
-//correndo um teste com 100 usuarios fazendo requisicoes por 30s
+
