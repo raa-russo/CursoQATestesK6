@@ -1,30 +1,56 @@
-import http from 'k6/http';
-import { sleep, check } from 'k6';
+import Login from "./login/login.js";
+import ListarUsuarios from "./usuarios/listarUsers.js";
+import CadastrarUsuarios from "./usuarios/cadastrarUsers.js";
+import ListarUsuariosId from "./usuarios/listarUsersId.js";
+import EditarUsuarios from "./usuarios/editarUsers.js";
+import ExcluirUsuarios from "./usuarios/excluirUsers.js";
+import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 export function handleSummary(data) {
     return {
       "summary.html": htmlReport(data),
     };
-  }  
+  }
 
-export default function () {
-    const url = 'http://localhost:3000/login';
+  export const options = {
+    stages: [
+      { duration: '10s', target: 50 },
+      { duration: '20s', target: 100 },
+      { duration: '30s', target: 200 },
+      { duration: '10s', target: 100 },
+      { duration: '30s', target: 0 },
+    ],
+    thresholds: {
+      http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'], 
+      http_req_failed: ['rate<0.01'] 
+    }
+  }
 
-    const payload = JSON.stringify({
-        email: 'fulano@qa.com',
-        password: 'teste'
-    })
-    const headers = { 'headers': { 'Content-Type': 'application/json' } }
-    const res = http.post(url, payload, headers) 
-  
-    check(res, {
-        'status shoul be 200': (r) => r.status === 200,        
-    });       
-    //console.log(res.body);
+export default () => {
+    group('Endpoint Login de usuários - Serverest.Api', () => {
+      Login();
+    });
+
+    group('Endpoint Listar usuários - Serverest.Api', () => {
+      ListarUsuarios();
+    });
+
+    group('Endpoint Editar usuários - Serverest.Api', () => {
+        EditarUsuarios();
+      });
+
+    group('Endpoint Cadastrar Usuário - Serverest.Api', () => {
+      CadastrarUsuarios();
+    });
+
+    group('Endpoint Listar Usuarios por id - Serverest.Api', () => {
+        ListarUsuariosId();
+    });
+
+    group('Endpoint Excluir Usuários - Serverest.Api', () => {
+        ExcluirUsuarios();
+    });
+
     sleep(1);
 }
-
-
-
-
