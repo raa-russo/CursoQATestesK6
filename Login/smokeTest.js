@@ -19,7 +19,7 @@ export default function () {
     const res = http.post(url, payload, headers) 
   
     check(res, {
-        'status shoul be 200': (r) => r.status === 200,        
+        'status should be 200': (r) => r.status === 200,        
     });       
     //console.log(res.body);
     sleep(1);
