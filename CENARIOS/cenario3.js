@@ -14,12 +14,19 @@ export function handleSummary(data) {
 
   export const options = {
     stages: [
-      { duration: '1s', target: 1 },
-      
+      { duration: "20s", target: 100 },
+      { duration: "30s", target: 100 },
+      { duration: "20s", target: 200 },
+      { duration: "30s", target: 200 },
+      { duration: "10s", target: 300 },
+      { duration: "20s", target: 300 },
+      { duration: "30s", target: 400 },
+      { duration: "10s", target: 0 },
+  
     ],
     thresholds: {
-      http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'], 
-      http_req_failed: ['rate<0.01'] 
+      http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'],
+      http_req_failed: ['rate<0.01']
     }
   }
 
