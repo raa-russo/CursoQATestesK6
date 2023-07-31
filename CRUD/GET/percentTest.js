@@ -19,6 +19,10 @@ export default function () {
   const res1 = http.get('http://localhost:3000');
   sleep(1);
 }
+check(res, {
+  "Status é 200": (r) => r.status === 200,
+  'body size is 3237 bytes': (r) => r.body.length == 3237,
+});
 
 
 
