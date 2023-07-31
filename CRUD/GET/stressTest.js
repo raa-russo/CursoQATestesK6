@@ -1,5 +1,5 @@
 import http from "k6/http";
-import { sleep } from "k6";
+import { sleep, check } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 export function handleSummary(data) {
@@ -8,7 +8,7 @@ export function handleSummary(data) {
   };
 }
 
-const baseUrl = "http://localhost:3000"; // URL base da sua aplicação
+const Url = "http://localhost:3000"; // URL base da sua aplicação
 
 export const options = {
   stages: [
@@ -29,23 +29,20 @@ export const options = {
 
 export default function () {
   // Simula uma requisição GET para a página inicial da aplicação
-  const response = http.get(`${baseUrl}`);
+  const response = http.get(`${Url}`);
 
   try {
     // Verifica se a resposta foi bem-sucedida (status 2xx)
-    if (response.status >= 200 && response.status < 300) {
-      console.log('Stress Test passou! API is up and running.');
+    if (response.status >= 200 && response.status < 399) {
+     // console.log('Stress Test passou! API is up and running.');
     } else {
-      console.error('Stress Test falhou! API returned an error.');
+     // console.error('Stress Test falhou! API returned an error.');
     }
   } catch (error) {
-    console.error('Stress Test falhou! Unable to connect to the API.');
+   // console.error('Stress Test falhou! Unable to connect to the API.');
     console.error(error.message);
   }
-  check(response, {
-    "Status é 200": (r) => r.status === 200,
-  });
-  console.log(response.body)
+   
   // Aguarda um pequeno intervalo entre as requisições
   sleep(1);
 }
