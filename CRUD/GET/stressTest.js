@@ -9,17 +9,21 @@ export function handleSummary(data) {
 }
 
 const baseUrl = "http://localhost:3000"; // URL base da sua aplicação
-const maxUsers = 10; // Número máximo de usuários virtuais simultâneos
-const testDuration = "1m"; // Duração do teste de estresse (1 minuto)
 
 export const options = {
   stages: [
-    { duration: "2s", target: maxUsers }, // Aumenta gradativamente para o número máximo de usuários em 30 segundos
-    { duration: "3s", target: maxUsers }, // Mantém o número máximo de usuários por mais 30 segundos
-    { duration: "1s", target: 0 }, // Reduz gradualmente o número de usuários para 0 em 10 segundos
+    { duration: "2s", target: 100 },
+    { duration: "3s", target: 100 }, 
+    { duration: "2s", target: 200 }, 
+    { duration: "3s", target: 200 }, 
+    { duration: "1s", target: 300 }, 
+    { duration: "2s", target: 300 }, 
+    { duration: "3s", target: 400 }, 
+    { duration: "1s", target: 0 }, 
   ],
   thresholds: {
-    http_req_duration: ["p(95)<500"], // Define o limite de 500 ms para a duração das requisições
+    http_req_duration: ["p(95)<5000"], 
+    http_req_failed: ['rate<0.01']
   },
 };
 
@@ -38,7 +42,10 @@ export default function () {
     console.error('Stress Test falhou! Unable to connect to the API.');
     console.error(error.message);
   }
-
+  check(response, {
+    "Status é 200": (r) => r.status === 200,
+  });
+  console.log(response.body)
   // Aguarda um pequeno intervalo entre as requisições
   sleep(1);
 }

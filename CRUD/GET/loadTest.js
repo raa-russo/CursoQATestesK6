@@ -38,7 +38,6 @@ export default function () {
     //  console.error('Load Test falhou! Unable to connect to the API.');
     //  console.error(error.message);
     }
-
     // Verifica se a resposta foi bem-sucedida (status 2xx)
     check(response, {
       "Status é 200": (r) => r.status === 200,
