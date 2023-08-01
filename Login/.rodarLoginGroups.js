@@ -12,8 +12,7 @@ export function handleSummary(data) {
 }
 
 export const options = {
-    scenarios: {
-        login: {
+    scenarios: {        
             smokeTest: {
                 executor: 'constant-vus',
                 exec: 'smokeTest',
@@ -24,28 +23,28 @@ export const options = {
                 executor: 'constant-vus',
                 exec: 'loadTest',
                 vus: 50,
-                iterations: 100,
+                //iterations: 100,
                 startTime: '30s',
-                maxDuration: '1m',
+                duration: '1m',
             },
             stressTest: {
                 executor: 'constant-vus',
                 exec: 'stressTest',
                 vus: 500,
-                iterations: 100,
+                //iterations: 100,
                 startTime: '30s',
-                maxDuration: '1m',
+                duration: '1m',
             },
             statusCode: {
                 executor: 'constant-vus',
                 exec: 'statusCode',
                 vus: 1,
-                iterations: 1,
+                //iterations: 1,
                 startTime: '30s',
-                maxDuration: '1m',
+                duration: '1m',
             },
         },
-    }
+    
 };
 
 
@@ -71,3 +70,4 @@ export function statusCode() {
         StatusCode()
     });
 };
+//run test => k6 run login/.rodarLoginGroups.js 
