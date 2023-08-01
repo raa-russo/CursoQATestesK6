@@ -29,3 +29,4 @@ export default () => {
 
     sleep(1);
 }
+//run test => k6 run login/.rodarTestLogin.js
