@@ -21,3 +21,5 @@ const res = http.del(url, headers)
   //console.log(res.body)
   sleep(1)
 }
+
+//k6 run usuarios/excluirUsers.js

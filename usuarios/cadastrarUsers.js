@@ -32,3 +32,5 @@ const res = http.post(url, payload, headers)
   
   sleep(1)
 }
+
+//k6 run usuarios/cadastrarUsers.js

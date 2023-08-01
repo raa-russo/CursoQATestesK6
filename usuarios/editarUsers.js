@@ -30,3 +30,5 @@ export default function () {
 
     sleep(1)
 }
+
+//k6 run usuarios/editarUsers.js

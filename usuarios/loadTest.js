@@ -53,3 +53,5 @@ export default () => {
 
   sleep(1);
 }
+
+//k6 run usuarios/loadTest.js
