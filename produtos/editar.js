@@ -37,3 +37,4 @@ const res = http.put(url, payload, Headers);
   sleep(1);  
 }
 
+//run test =>  k6 run produtos/editar.js

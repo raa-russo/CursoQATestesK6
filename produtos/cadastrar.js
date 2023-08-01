@@ -36,3 +36,4 @@ const res = http.post(url, payload, Headers);
   sleep(1);  
 }
 
+//run test =>  k6 run produtos/cadastrar.js

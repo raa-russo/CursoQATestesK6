@@ -29,3 +29,4 @@ export default function () {
   sleep(1);
 }
 
+//run test =>  k6 run produtos/excluir.js

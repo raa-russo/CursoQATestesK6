@@ -25,3 +25,4 @@ export default function () {
   sleep(1);
 }
 
+//run test =>  k6 run produtos/listar_Id.js

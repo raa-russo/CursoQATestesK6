@@ -50,3 +50,5 @@ export default () => {
 
   sleep(1);
 };
+
+//run test =>  k6 run produtos/smokeTest.js
