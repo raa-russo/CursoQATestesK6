@@ -11,7 +11,7 @@ export function handleSummary(data) {
 }
 
 export const options = {
-    usuarios: {
+    scenarios: {
         smokeTest: {
             executor: 'constant-vus',
             exec: 'smokeTest',
@@ -22,17 +22,17 @@ export const options = {
             executor: 'constant-vus',
             exec: 'loadTest',
             vus: 50,
-            iterations: 100,
+            //iterations: 100,
             startTime: '30s',
-            maxDuration: '1m',
+            duration: '1m',
         },
         stressTest: {
             executor: 'constant-vus',
             exec: 'stressTest',
             vus: 500,
-            iterations: 100,
+           // iterations: 100,
             startTime: '50s',
-            maxDuration: '1m',
+            duration: '1m',
         }       
     },
 };
