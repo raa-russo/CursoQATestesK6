@@ -54,3 +54,4 @@ export function stressTest() {
     });
 };
 
+//run test => k6 run usuarios/.rodarUsersGroups.js
