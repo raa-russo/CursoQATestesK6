@@ -1,8 +1,6 @@
 import Login from "../login/login.js";
 import CadastarUsuarios from "../usuarios/cadastrarUsers.js";
-import ListarProdutos from "../produtos/listar.js";
-import EditarProdutos from "../produtos/editar.js";
-import ExcluirProdutos from "../produtos/excluir.js";
+import CadastarProdutos from "../produtos/cadastrar.js";
 import { group, sleep } from "k6";
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
@@ -11,7 +9,8 @@ export function handleSummary(data) {
       "summary.html": htmlReport(data),
     };
   }
-//stress test
+
+  //stress test
   export const options = {
     stages: [
       { duration: "20s", target: 100 },
@@ -33,24 +32,16 @@ export function handleSummary(data) {
 export default () => {
     group('Endpoint Login de usuários - Serverest.Api', () => {
       Login();
-    });    
+    });   
 
     group('Endpoint Cadastar Usuário - Serverest.Api', () => {
       CadastarUsuarios();
     });
 
-    group('Endpoint Listar Produtos - Serverest.Api', () => {
-      ListarProdutos();
+    group('Endpoint Cadastrar Produtos - Serverest.Api', () => {
+      CadastarProdutos();
     });
-
-    group('Endpoint Editar Produtos - Serverest.Api', () => {
-      EditarProdutos();
-    });
-
-    group('Endpoint Excluir Produtos - Serverest.Api', () => {
-      ExcluirProdutos();
-    });
-
-    sleep(1);
+    console.log(resposta.body)
+    sleep(2);
 }
-//run test => k6 run cenarios/cenario3.js
+//run test => k6 run cenarios/smokeTest_post.js

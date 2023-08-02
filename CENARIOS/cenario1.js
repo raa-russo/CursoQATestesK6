@@ -10,7 +10,7 @@ export function handleSummary(data) {
       "summary.html": htmlReport(data),
     };
   }
-
+//smoke test
   export const options = {
     stages: [
       { duration: '1s', target: 1 },

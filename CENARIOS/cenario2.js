@@ -9,7 +9,7 @@ export function handleSummary(data) {
       "summary.html": htmlReport(data),
     };
   }
-
+//load test
   export const options = {
     stages: [
       { duration: "1m", target: 100 },
