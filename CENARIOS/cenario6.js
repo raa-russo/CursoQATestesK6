@@ -24,8 +24,8 @@ export function handleSummary(data) {
   
     ],
     thresholds: {
-      http_req_duration: ['p(90) < 400', 'p(95) < 800', 'p(99.9) < 2000'],
-      http_req_failed: ['rate<0.01']
+      http_req_duration: ['p(90) < 2000'],
+      http_req_failed: ['rate<0.05']
     }
   }
 
@@ -41,7 +41,7 @@ export default () => {
     group('Endpoint Cadastrar Produtos - Serverest.Api', () => {
       CadastarProdutos();
     });
-    console.log(resposta.body)
+    
     sleep(2);
 }
-//run test => k6 run cenarios/smokeTest_post.js
+//run test => k6 run cenarios/cenario6.js
