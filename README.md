@@ -200,6 +200,10 @@ gitbash
 * para rodar o arquivo da rampa de tempo e usuarios basta add. --config settings/settings.json no final da chamada. ex:  k6 run primeiro-projeto/tests_k6/index.js --config settings/settings.json
 * rodar chamando por script e passando qtt. "k6 run primeiro-projeto/tests_k6/index.js --vus 20 --duration 10s"
 
+# excluir usuarios
+  (npx clear-npx-cache)
+  
+
 
 
 
