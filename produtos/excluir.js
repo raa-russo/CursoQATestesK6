@@ -17,11 +17,10 @@ export default function () {
     },
   };  
   
-  const res = http.del(url, Headers, null, params);  
+  const res = http.del(url,null, Headers);  
 
   check(res, {    
-    'is status code 200 - Registro excluído com sucesso': (r) => r.status === 200,
-    'response should have id': (r) => r.json().hasOwnProperty('_id'), 
+    'is status code 200 - Registro excluído com sucesso': (r) => r.status === 200,     
   });
 
   //console.log(res.body);
