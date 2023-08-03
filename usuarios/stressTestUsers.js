@@ -10,13 +10,18 @@ export function handleSummary(data) {
 }
 export const options = {
   stages: [
-    { duration: "1m", target: 100 },
-    { duration: "2m", target: 100 },
-    { duration: "1m", target: 0 },
+    { duration: "2s", target: 100 },
+    { duration: "3s", target: 100 },
+    { duration: "2s", target: 200 },
+    { duration: "3s", target: 200 },
+    { duration: "1s", target: 300 },
+    { duration: "2s", target: 300 },
+    { duration: "3s", target: 400 },
+    { duration: "1s", target: 0 },
   ],
   thresholds: {
-    http_req_duration: ["p(95)<2000"],
-    http_req_failed: ['rate<0.01']
+    http_req_duration: ["p(95)<3000"],
+    http_req_failed: ['rate<0.05']
   },
 };
 
@@ -57,9 +62,9 @@ const res = http.post(url, payload, headers)
   const id = res.json()._id;
   globalThis.id = id 
   //console.log(res.body)
- // console.log(id)
+  //console.log(id)
   
-  sleep(1)
+  sleep(2)
 }
 
-//k6 run usuarios/loadTestUsers.js
+//k6 run usuarios/stressTestUsers.js
