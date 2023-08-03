@@ -38,7 +38,12 @@ export default function () {
     email: 'fulano@qa.com',
     password: 'teste'
   })
-  const headers = { 'headers': { 'Content-Type': 'application/json' } }
+  const headers = { 
+    'headers': { 
+      'Content-Type': 'application/json',
+      'monitor': 'false'
+     } }
+
   const res = http.post(url, payload, headers);
 
   GetCustomerDuration.add(res.timings.duration);
