@@ -19,20 +19,20 @@ export const options = {
             duration: '1s',
         },
         loadTest: {
-            executor: 'constant-vus',
+            executor: 'per-vu-iterations',
             exec: 'loadTest',
             vus: 50,
-            //iterations: 100,
+            iterations: 100,
             startTime: '30s',
-            duration: '1m',
+            maxDuration: '1m',
         },
         stressTest: {
-            executor: 'constant-vus',
+            executor: 'per-vu-iterations',
             exec: 'stressTest',
             vus: 500,
-           // iterations: 100,
+            iterations: 100,
             startTime: '50s',
-            duration: '1m',
+            maxDuration: '1m',
         }       
     },
 };
