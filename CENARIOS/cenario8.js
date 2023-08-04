@@ -30,7 +30,7 @@ export const options = {
                 executor: 'per-vu-iterations',
                 exec: 'stressTest',
                 vus: 500,
-                iterations: 50,
+                iterations: 500,
                 startTime: '10s',
                 maxDuration: '3m',
             },
