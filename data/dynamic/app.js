@@ -42,11 +42,12 @@ const res = http.post(url, payload, headers)
 
   const id = res.json()._id;
   globalThis.id = id ;
+  
 //   console.log(res.body);
 //   console.log(id);
-//   console.log(users);
-//   const emaill = res.json.email;
-//   console.log(emaill);
+//    console.log(users);
+//    const emaill = res.json().email;
+//    console.log(emaill);
    
   sleep(2);
 }
